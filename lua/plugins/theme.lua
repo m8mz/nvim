@@ -1,10 +1,9 @@
 return {
-	"catppuccin/nvim",
-	name = "theme",
+	"folke/tokyonight.nvim",
 	lazy = false,
 	priority = 999,
+	opts = {},
 	config = function()
-		vim.cmd("colorscheme catppuccin")
-		require("catppuccin").setup({})
+		vim.cmd("colorscheme tokyonight")
 	end,
 }

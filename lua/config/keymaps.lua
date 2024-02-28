@@ -56,3 +56,10 @@ api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
 -- Comments
 api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
 api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
+
+api.nvim_set_keymap("n", "<leader>h", "<cmd>wincmd h<cr>", {})
+api.nvim_set_keymap("n", "<leader>j", "<cmd>wincmd j<cr>", {})
+api.nvim_set_keymap("n", "<leader>k", "<cmd>wincmd k<cr>", {})
+api.nvim_set_keymap("n", "<leader>l", "<cmd>wincmd l<cr>", {})
+api.nvim_set_keymap("n", "<leader>q", "<cmd>wincmd q<cr>", {})
+api.nvim_set_keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", {})
