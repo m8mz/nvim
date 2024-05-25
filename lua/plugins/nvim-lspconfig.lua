@@ -118,6 +118,13 @@ local config = function()
 		on_attach = on_attach,
 	})
 
+	-- Go
+	lspconfig.gopls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		filetypes = { "go" },
+	})
+
 	-- C/C++
 	lspconfig.clangd.setup({
 		capabilities = capabilities,
@@ -141,6 +148,7 @@ local config = function()
 	local solhint = require("efmls-configs.linters.solhint")
 	local cpplint = require("efmls-configs.linters.cpplint")
 	local clangformat = require("efmls-configs.formatters.clang_format")
+	local yamllint = require("efmls-configs.linters.yamllint")
 
 	-- configure efm server
 	lspconfig.efm.setup({
@@ -149,6 +157,7 @@ local config = function()
 			"python",
 			"json",
 			"jsonc",
+			"yaml",
 			"sh",
 			"javascript",
 			"javascriptreact",
@@ -192,6 +201,7 @@ local config = function()
 				css = { prettier_d },
 				c = { clangformat, cpplint },
 				cpp = { clangformat, cpplint },
+				yaml = { yamllint },
 			},
 		},
 	})

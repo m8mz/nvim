@@ -4,6 +4,6 @@ return {
 	priority = 999,
 	opts = {},
 	config = function()
-		vim.cmd("colorscheme onedark_vivid")
+		vim.cmd("colorscheme onedark")
 	end,
 }
