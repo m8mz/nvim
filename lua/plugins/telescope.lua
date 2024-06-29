@@ -1,45 +1,35 @@
-local mapvimkey = require("util.keymapper").mapvimkey
-
-local config = function()
-	local telescope = require("telescope")
-	telescope.setup({
-		defaults = {
-			mappings = {
-				i = {
-					["<C-j>"] = "move_selection_next",
-					["<C-k>"] = "move_selection_previous",
-				},
-			},
-		},
-		pickers = {
-			find_files = {
-				theme = "dropdown",
-				previewer = true,
-				hidden = true,
-			},
-			live_grep = {
-				theme = "dropdown",
-				previewer = true,
-			},
-			buffers = {
-				theme = "dropdown",
-				previewer = true,
-			},
-		},
-	})
-end
-
 return {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.3",
-	lazy = false,
-	dependencies = { "nvim-lua/plenary.nvim" },
-	config = config,
-	keys = {
-		mapvimkey("<leader>fk", "Telescope keymaps", "Show Keymaps"),
-		mapvimkey("<leader>fh", "Telescope help_tags", "Show Help Tags"),
-		mapvimkey("<leader>ff", "Telescope find_files", "Find Files"),
-		mapvimkey("<leader>fg", "Telescope live_grep", "Live Grep"),
-		mapvimkey("<leader>fb", "Telescope buffers", "Find Buffers"),
+	branch = "0.1.x",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		"nvim-tree/nvim-web-devicons",
 	},
+	config = function()
+		local telescope = require("telescope")
+		local actions = require("telescope.actions")
+
+		telescope.setup({
+			defaults = {
+				path_display = { "smart" },
+				mappings = {
+					i = {
+						["<C-k>"] = actions.move_selection_previous,
+						["<C-j>"] = actions.move_selection_next,
+						["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+					},
+				},
+			},
+		})
+
+		telescope.load_extension("fzf")
+
+		-- set keymaps
+		local keymap = vim.keymap
+
+		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Search files" })
+		keymap.set("n", "<leader> ", "<cmd>Telescope git_files<cr>", { desc = "Search git files" })
+		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Search files for string" })
+	end,
 }

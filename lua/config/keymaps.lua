@@ -1,12 +1,25 @@
 local mapkey = require("util.keymapper").mapvimkey
 
+-- basics
+mapkey("<leader>qq", "quitall", "n")
+
+-- lazy-git
+mapkey("<leader>l", "Lazy home", "n")
+
 -- Buffer Navigation
 mapkey("<leader>bn", "bnext", "n") -- Next buffer
 mapkey("<leader>bp", "bprevious", "n") -- Prev buffer
 mapkey("<leader>bb", "e #", "n") -- Switch to Other Buffer
 mapkey("<leader>`", "e #", "n") -- Switch to Other Buffer
 
--- Directory Navigatio}n
+-- Tab Management
+mapkey("<leader>to", "tabnew", "n")
+mapkey("<leader>tx", "tabclose", "n")
+mapkey("<leader>tn", "tabn", "n")
+mapkey("<leader>tp", "tabp", "n")
+mapkey("<leader>tf", "tabnew %", "n")
+
+-- nvim-tree
 mapkey("<leader>m", "NvimTreeFocus", "n")
 mapkey("<leader>e", "NvimTreeToggle", "n")
 
@@ -23,34 +36,8 @@ mapkey("<C-l>", "wincmd l", "t") -- Navigate Right
 -- Window Management
 mapkey("<leader>sv", "vsplit", "n") -- Split Vertically
 mapkey("<leader>sh", "split", "n") -- Split Horizontally
-mapkey("<C-Up>", "resize +2", "n")
-mapkey("<C-Down>", "resize -2", "n")
-mapkey("<C-Left>", "vertical resize +2", "n")
-mapkey("<C-Right>", "vertical resize -2", "n")
-
--- Show Full File-Path
-mapkey("<leader>pa", "echo expand('%:p')", "n") -- Show Full File Path
+mapkey("<leader>sx", "close", "n") -- Close window
 
 -- Indenting
-vim.keymap.set("v", "<", "<gv", { silent = true, noremap = true })
-vim.keymap.set("v", ">", ">gv", { silent = true, noremap = true })
-
-local api = vim.api
-
--- Zen Mode
-api.nvim_set_keymap("n", "<leader>zn", ":TZNarrow<CR>", {})
-api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
-api.nvim_set_keymap("n", "<leader>sm", ":TZFocus<CR>", {})
-api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {})
-api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
-
--- Comments
-api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
-api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
-
-api.nvim_set_keymap("n", "<leader>h", "<cmd>wincmd h<cr>", {})
-api.nvim_set_keymap("n", "<leader>j", "<cmd>wincmd j<cr>", {})
-api.nvim_set_keymap("n", "<leader>k", "<cmd>wincmd k<cr>", {})
-api.nvim_set_keymap("n", "<leader>l", "<cmd>wincmd l<cr>", {})
-api.nvim_set_keymap("n", "<leader>q", "<cmd>wincmd q<cr>", {})
-api.nvim_set_keymap("n", "<leader>gg", "<cmd>LazyGit<cr>", {})
+mapkey(">", ">gv", "v")
+mapkey("<", "<gv", "v")
