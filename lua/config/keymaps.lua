@@ -19,10 +19,6 @@ mapkey("<leader>tn", "tabn", "n")
 mapkey("<leader>tp", "tabp", "n")
 mapkey("<leader>tf", "tabnew %", "n")
 
--- nvim-tree
-mapkey("<leader>m", "NvimTreeFocus", "n")
-mapkey("<leader>e", "NvimTreeToggle", "n")
-
 -- Pane and Window Navigation
 mapkey("<C-h>", "<C-w>h", "n") -- Navigate Left
 mapkey("<C-j>", "<C-w>j", "n") -- Navigate Down

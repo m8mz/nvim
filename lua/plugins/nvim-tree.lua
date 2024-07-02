@@ -27,5 +27,11 @@ return {
 				ignore = false,
 			},
 		})
+
+		-- setup keybinds
+		local keymap = vim.keymap
+
+		keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<cr>", { desc = "Open file explorer at root" })
+		keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<cr>", { desc = "Open file explorer at current file" })
 	end,
 }
