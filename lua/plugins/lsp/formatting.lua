@@ -25,7 +25,13 @@ return {
 			},
 		})
 
-		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+		-- set keybinds
+		local keymap = vim.keymap
+
+		-- Python formatting
+		keymap.set("n", "<leader>oi", "<cmd>PyrightOrganizeImports<cr>", { desc = "Organize Python imports" })
+
+		keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({
 				lsp_fallback = true,
 				async = false,

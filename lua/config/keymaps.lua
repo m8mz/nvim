@@ -1,4 +1,5 @@
 local mapkey = require("util.keymapper").mapvimkey
+local keymap = vim.keymap
 
 -- basics
 mapkey("<leader>qq", "quitall", "n")
@@ -7,17 +8,10 @@ mapkey("<leader>qq", "quitall", "n")
 mapkey("<leader>l", "Lazy home", "n")
 
 -- Buffer Navigation
-mapkey("<leader>bn", "bnext", "n") -- Next buffer
-mapkey("<leader>bp", "bprevious", "n") -- Prev buffer
+-- mapkey("<leader>bn", "bnext", "n") -- Next buffer
+-- mapkey("<leader>bp", "bprevious", "n") -- Prev buffer
 mapkey("<leader>bb", "e #", "n") -- Switch to Other Buffer
 mapkey("<leader>`", "e #", "n") -- Switch to Other Buffer
-
--- Tab Management
-mapkey("<leader>to", "tabnew", "n")
-mapkey("<leader>tx", "tabclose", "n")
-mapkey("<leader>tn", "tabn", "n")
-mapkey("<leader>tp", "tabp", "n")
-mapkey("<leader>tf", "tabnew %", "n")
 
 -- Pane and Window Navigation
 mapkey("<C-h>", "<C-w>h", "n") -- Navigate Left
@@ -33,7 +27,3 @@ mapkey("<C-l>", "wincmd l", "t") -- Navigate Right
 mapkey("<leader>sv", "vsplit", "n") -- Split Vertically
 mapkey("<leader>sh", "split", "n") -- Split Horizontally
 mapkey("<leader>sx", "close", "n") -- Close window
-
--- Indenting
-mapkey(">", ">gv", "v")
-mapkey("<", "<gv", "v")

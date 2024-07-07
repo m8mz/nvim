@@ -27,9 +27,11 @@ return {
 
 		-- set keymaps
 		local keymap = vim.keymap
+		local builtin = require("telescope.builtin")
 
-		keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Search files" })
-		keymap.set("n", "<leader> ", "<cmd>Telescope git_files<cr>", { desc = "Search git files" })
-		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Search files for string" })
+		keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Search files" })
+		keymap.set("n", "<leader> ", builtin.git_files, { desc = "Search git files" })
+		keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Search files for string" })
+		keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Search buffers" })
 	end,
 }
