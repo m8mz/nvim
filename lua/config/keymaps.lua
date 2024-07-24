@@ -1,29 +1,36 @@
-local mapkey = require("util.keymapper").mapvimkey
 local keymap = vim.keymap
 
+local opts = {
+	noremap = true,
+	silent = true,
+}
+
 -- basics
-mapkey("<leader>qq", "quitall", "n")
+opts.desc = "Quit all"
+keymap.set("n", "<leader>qq", "<cmd>quitall<cr>", opts)
 
 -- lazy-git
-mapkey("<leader>l", "Lazy home", "n")
+opts.desc = "Lazygit home"
+keymap.set("n", "<leader>l", "<cmd>Lazy home<cr>", opts)
 
--- Buffer Navigation
--- mapkey("<leader>bn", "bnext", "n") -- Next buffer
--- mapkey("<leader>bp", "bprevious", "n") -- Prev buffer
-mapkey("<leader>bb", "e #", "n") -- Switch to Other Buffer
-mapkey("<leader>`", "e #", "n") -- Switch to Other Buffer
+-- buffer navigation
+opts.desc = "Switch buffers"
+keymap.set("n", "<leader>`", "e #", opts)
 
 -- Pane and Window Navigation
-mapkey("<C-h>", "<C-w>h", "n") -- Navigate Left
-mapkey("<C-j>", "<C-w>j", "n") -- Navigate Down
-mapkey("<C-k>", "<C-w>k", "n") -- Navigate Up
-mapkey("<C-l>", "<C-w>l", "n") -- Navigate Right
-mapkey("<C-h>", "wincmd h", "t") -- Navigate Left
-mapkey("<C-j>", "wincmd j", "t") -- Navigate Down
-mapkey("<C-k>", "wincmd k", "t") -- Navigate Up
-mapkey("<C-l>", "wincmd l", "t") -- Navigate Right
+opts.desc = "Navigate left"
+keymap.set("n", "<C-h>", "<cmd>wincmd h<cr>", opts)
+opts.desc = "Navigate down"
+keymap.set("n", "<C-j>", "<cmd>wincmd j<cr>", opts)
+opts.desc = "Navigate up"
+keymap.set("n", "<C-k>", "<cmd>wincmd k<cr>", opts)
+opts.desc = "Navigate right"
+keymap.set("n", "<C-l>", "<cmd>wincmd l<cr>", opts)
 
--- Window Management
-mapkey("<leader>sv", "vsplit", "n") -- Split Vertically
-mapkey("<leader>sh", "split", "n") -- Split Horizontally
-mapkey("<leader>sx", "close", "n") -- Close window
+-- window management
+opts.desc = "Split vertically"
+keymap.set("n", "<leader>|", "<cmd>vsplit<cr>", opts)
+opts.desc = "Split horizontally"
+keymap.set("n", "<leader>-", "<cmd>split<cr>", opts)
+opts.desc = "Close split window"
+keymap.set("n", "<leader>qw", "<cmd>close<cr>", opts)
