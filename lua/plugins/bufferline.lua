@@ -22,6 +22,7 @@ return {
 		keymap.set("n", "<leader>7", "<cmd>lua require('bufferline').go_to(7, true)<cr>", {})
 		keymap.set("n", "<leader>8", "<cmd>lua require('bufferline').go_to(8, true)<cr>", {})
 		keymap.set("n", "<leader>9", "<cmd>lua require('bufferline').go_to(9, true)<cr>", {})
+		keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Toggle buffer" })
 		keymap.set("n", "<leader>bn", "<cmd>BufferLineCycleNext<cr>", { desc = "Go to next buffer" })
 		keymap.set("n", "<leader>bp", "<cmd>BufferLineCyclePrev<cr>", { desc = "Go to prev buffer" })
 		keymap.set("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "Delete current buffer" })

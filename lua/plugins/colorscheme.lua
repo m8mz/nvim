@@ -1,8 +1,10 @@
 return {
-	"folke/tokyonight.nvim",
+	"scottmckendry/cyberdream.nvim",
 	priority = 1000,
 	config = function()
-		require("tokyonight").setup({})
-		vim.cmd("colorscheme tokyonight")
+		require("cyberdream").setup({
+			transparent = true,
+		})
+		vim.cmd("colorscheme cyberdream")
 	end,
 }
